@@ -24,8 +24,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Copy-Item "$(System.DefaultWorkingDirectory)/spec/chromedriver" -Destination "$(System.DefaultWorkingDirectory)/selenium-webdriver-rspec/spec/"
-      chmod +x $(System.DefaultWorkingDirectory)/selenium-webdriver-rspec/spec/chromedriver
+      chmod +x $(System.DefaultWorkingDirectory)/spec/chromedriver
+      Copy-Item "$(System.DefaultWorkingDirectory)/spec/chromedriver" -Destination "/usr/bin/google-chrome"
 
 - script: |
     gem install bundler
