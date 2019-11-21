@@ -20,12 +20,14 @@ steps:
   inputs:
     versionSpec: '>= 2.5'
 
-- bash: |
-    wget https://chromedriver.storage.googleapis.com/75.0.3770.140/chromedriver_linux64.zip
-    unzip chromedriver_linux64.zip
-    chmod +x chromedriver
-  displayName: Download ChromeDriver
-  workingDirectory: selenium-webdriver-rspec/spec
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      wget https://chromedriver.storage.googleapis.com/75.0.3770.140/chromedriver_linux64.zip
+      unzip chromedriver_linux64.zip
+      chmod +x chromedriver
+    workingDirectory: 'selenium-webdriver-rspec/spec'
 
 - script: |
     gem install bundler
