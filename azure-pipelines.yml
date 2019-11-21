@@ -20,9 +20,11 @@ steps:
   inputs:
     versionSpec: '>= 2.5'
 
-- script: |
-    gem install bundler
-    bundle install --gemfile=Gemfile1
+- script: gem install bundler
+  workingDirectory: selenium-webdriver-rspec
+  displayName: 'bundler install'
+
+- script: bundle install --gemfile=Gemfile
   workingDirectory: selenium-webdriver-rspec
   displayName: 'bundle install'
 
