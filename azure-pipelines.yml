@@ -23,9 +23,7 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: |
-      chmod +x $(System.DefaultWorkingDirectory)/spec/chromedriver
-      Copy-Item "$(System.DefaultWorkingDirectory)/spec/chromedriver" -Destination "/usr/bin/google-chrome"
+    script: chromedriver --version
 
 - script: |
     gem install bundler
