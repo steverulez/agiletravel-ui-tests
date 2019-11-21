@@ -20,16 +20,19 @@ steps:
   inputs:
     versionSpec: '>= 2.5'
 
-- task: PowerShell@2
+- task: Bash@3
   inputs:
     targetType: 'inline'
-    script: chromedriver --version
+    script: |
+      echo 'before whereis'
+      whereis chromedriver
+      echo 'after whereis'
 
-- script: |
-    gem install bundler
-    bundle install --retry=3 --jobs=4 --gemfile=selenium-webdriver-rspec/Gemfile
-  displayName: 'bundle install'
+#
+#    gem install bundler
+#    bundle install --retry=3 --jobs=4 --gemfile=selenium-webdriver-rspec/Gemfile
+#  displayName: 'bundle install'
 
-- script: bundle exec rake -f Rakefile ci:ui_tests:quick
-  displayName: 'bundle exec rake'
-  workingDirectory: selenium-webdriver-rspec
+#- script: bundle exec rake -f Rakefile ci:ui_tests:quick
+#  displayName: 'bundle exec rake'
+#  workingDirectory: selenium-webdriver-rspec
