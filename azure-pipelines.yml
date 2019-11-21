@@ -3,9 +3,6 @@
 # Add steps that install rails, analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
 
-variables:
-  BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
-
 trigger:
 - master
 
@@ -25,7 +22,7 @@ steps:
 
 - script: |
     gem install bundler
-    bundle install
+    bundle install --gemfile=Gemfile1
   workingDirectory: selenium-webdriver-rspec
   displayName: 'bundle install'
 
