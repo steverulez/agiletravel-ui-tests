@@ -9,7 +9,7 @@ trigger:
 strategy:
   matrix:
     linux-chrome:
-      imageName: 'ubuntu-16.04'
+      imageName: 'windows-latest'
       browser: chrome
 
 pool:
@@ -20,19 +20,12 @@ steps:
   inputs:
     versionSpec: '>= 2.5'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      echo 'before whereis'
-      whereis chromedriver
-      echo 'after whereis'
 
-#
-#    gem install bundler
-#    bundle install --retry=3 --jobs=4 --gemfile=selenium-webdriver-rspec/Gemfile
-#  displayName: 'bundle install'
+- script: |
+    gem install bundler
+    bundle install --retry=3 --jobs=4 --gemfile=selenium-webdriver-rspec/Gemfile
+  displayName: 'bundle install'
 
-#- script: bundle exec rake -f Rakefile ci:ui_tests:quick
-#  displayName: 'bundle exec rake'
-#  workingDirectory: selenium-webdriver-rspec
+- script: bundle exec rake -f Rakefile ci:ui_tests:quick
+  displayName: 'bundle exec rake'
+  workingDirectory: selenium-webdriver-rspec
