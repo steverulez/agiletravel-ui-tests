@@ -20,6 +20,10 @@ steps:
   inputs:
     versionSpec: '>= 2.5'
 
+- pwsh: |
+   echo "##vso[task.prependpath]$env:CHROMEWEBDRIVER"
+  displayName: Adds ChromeWebDriver for Selenium to PATH
+
 - script: gem install bundler
   workingDirectory: selenium-webdriver-rspec
   displayName: 'bundler install'
