@@ -9,5 +9,6 @@ gem 'ci_reporter_rspec'
 gem 'rspec_junit_formatter', '~>0.4.1'
 gem 'httpclient'
 gem 'selenium-webdriver'
+gem 'ffi'
 
 
