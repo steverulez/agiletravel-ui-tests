@@ -6,8 +6,14 @@
 trigger:
 - master
 
+strategy:
+  matrix:
+    linux-firefox:
+      imageName: 'ubuntu-latest'
+      browser: firefox
+
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: $(imageName)
 
 steps:
 - task: UseRubyVersion@0
