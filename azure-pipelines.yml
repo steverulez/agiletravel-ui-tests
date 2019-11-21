@@ -19,5 +19,6 @@ steps:
     bundle install --retry=3 --jobs=4 --gemfile=selenium-webdriver-rspec/Gemfile
   displayName: 'bundle install'
 
-- script: bundle exec rake -f selenium-webdriver-rspec/Rakefile ci:ui_tests:quick
+- script: bundle exec rake -f Rakefile ci:ui_tests:quick
   displayName: 'bundle exec rake'
+  workingDirectory: selenium-webdriver-rspec
