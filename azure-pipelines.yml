@@ -3,6 +3,9 @@
 # Add steps that install rails, analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
 
+variables:
+  BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
+
 trigger:
 - master
 
@@ -19,6 +22,15 @@ steps:
 - task: UseRubyVersion@0
   inputs:
     versionSpec: '>= 2.5'
+
+- task: Cache@2
+  inputs:
+    key: 'gems | "$(Agent.OS)" | my.gemspec'
+    restoreKeys: | 
+       gems | "$(Agent.OS)"
+       gems
+    path: $(BUNDLE_PATH)
+  displayName: Cache gems
 
 
 - script: |
