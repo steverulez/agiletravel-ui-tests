@@ -8,9 +8,9 @@ trigger:
 
 strategy:
   matrix:
-    linux-firefox:
-      imageName: 'ubuntu-latest'
-      browser: firefox
+    linux-chrome:
+      imageName: 'ubuntu-16.04'
+      browser: chrome
 
 pool:
   vmImage: $(imageName)
