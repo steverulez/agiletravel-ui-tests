@@ -131,7 +131,7 @@ end
 desc "run hello world test"
 RSpec::Core::RakeTask.new("ui_tests:hello-world") do |t|
   
-  specs_to_be_executed = [ "selenium-webdriver-rspec/spec/00_helloworld_spec.rb" ]
+  specs_to_be_executed = [ "spec/00_helloworld_spec.rb" ]
 
   # t.pattern = FileList[specs_to_be_executed]
   buildwise_formatter =  File.join(File.dirname(__FILE__), "buildwise_rspec_formatter.rb")
