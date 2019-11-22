@@ -35,6 +35,7 @@ end
 def specs_for_quick_build
   # list test files to be run in a quick build, leave the caller to set full path
   [
+    "00_helloworld_spec.rb",
     "01_login_spec.rb", 
     "02_flight_spec.rb",
     "03_passenger_spec.rb",

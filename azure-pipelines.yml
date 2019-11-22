@@ -32,7 +32,7 @@ steps:
   workingDirectory: selenium-webdriver-rspec
   displayName: 'bundle install'
 
-- script: bundle exec rake -f Rakefile ci:ui_tests:hello-world
+- script: bundle exec rake -f Rakefile ci:ui_tests:quick
   displayName: 'bundle exec rake'
   workingDirectory: selenium-webdriver-rspec
 
